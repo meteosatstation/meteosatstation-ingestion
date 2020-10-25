@@ -39,6 +39,8 @@ def get_config():
             }
         )
 
+        log.debug("Config: %s", config)
+
         return config
     except Exception as e:
         log.fatal('Unable to get configuration from database: %s', str(e))

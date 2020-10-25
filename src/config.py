@@ -7,18 +7,27 @@ log = logging.getLogger(__name__)
 
 
 def get_monitored_folders():
-    config = database.get_config()
+    try:
+        config = database.get_config()
 
-    return config['monitored_folders']
+        return config['monitored_folders']
+    except Exception as e:
+        log.fatal("Unable to load monitored folders config: %s", str(e))
 
 
 def get_config_reload_interval():
-    config = database.get_config()
+    try:
+        config = database.get_config()
 
-    return config['config_reload_interval']
+        return config['config_reload_interval']
+    except Exception as e:
+        log.fatal("Unable to load config reload interval config: %s", str(e))
 
 
 def get_folder_scan_interval():
-    config = database.get_config()
+    try:
+        config = database.get_config()
 
-    return config['scan_interval']
+        return config['scan_interval']
+    except Exception as e:
+        log.fatal("Unable to load folder scan interval config: %s", str(e))
