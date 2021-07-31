@@ -22,7 +22,8 @@ def run():
 
     while True:
         log.debug("Start main loop")
-        log.debug("config_reload_loop_count is %s", str(config_reload_loop_count))
+        log.debug("config_reload_loop_count is %s",
+                  str(config_reload_loop_count))
 
         # load initial config
         if config_reload_interval is None or config_reload_interval is config_reload_loop_count:
@@ -30,10 +31,10 @@ def run():
             config_reload_interval = config.get_config_reload_interval()
             config_reload_loop_count = 0
 
-        if scanning_paths is None or config_reload_loop_count is 0:
+        if scanning_paths is None or config_reload_loop_count == 0:
             scanning_paths = config.get_monitored_folders()
 
-        if scan_interval is None or config_reload_loop_count is 0:
+        if scan_interval is None or config_reload_loop_count == 0:
             scan_interval = config.get_folder_scan_interval()
 
         # do the actual scanning
@@ -51,4 +52,3 @@ def run():
 
 if __name__ == '__main__':
     run()
-
