@@ -1,0 +1,13 @@
+version: 2
+jobs:
+ build:
+   machine: true
+   steps:
+     - checkout
+     - run: docker build -t meteosatstation/ingestion:$CIRCLE_BRANCH .
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
