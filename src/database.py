@@ -14,7 +14,8 @@ try:
     mongo_client = pymongo.MongoClient(mongo_connection_string)
 
     # create clients for config db and files db
-    mongo_database_string = os.environ.get('MONGODBO_DATABASE', 'meteosatstation')
+    mongo_database_string = os.environ.get('MONGODB_DATABASE',
+                                           'meteosatstation')
     mongo_database = mongo_client[mongo_database_string]
 
     # get collections

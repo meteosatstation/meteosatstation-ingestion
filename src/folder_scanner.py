@@ -6,6 +6,7 @@ import database
 # create logger
 log = logging.getLogger(__name__)
 
+
 def scan_folder(config):
     # you can specify a regex in the configuration and we'll only load in if it matches that
     if 'regex' in config:
@@ -22,7 +23,8 @@ def scan_folder(config):
             if 'regex' in config:
                 if regex.match(file):
                     # load in the file
-                    log.info("Loading in file %s because it matches our regex", file)
+                    log.info("Loading in file %s because it matches our regex",
+                             file)
                     database.load_file(full_path, config)
 
                     if config['delete_after_rx']:

@@ -22,7 +22,8 @@ def run():
 
     while True:
         log.debug("Start main loop")
-        log.debug("config_reload_loop_count is %s", str(config_reload_loop_count))
+        log.debug("config_reload_loop_count is %s",
+                  str(config_reload_loop_count))
 
         # load initial config
         if config_reload_interval is None or config_reload_interval is config_reload_loop_count:
@@ -51,4 +52,3 @@ def run():
 
 if __name__ == '__main__':
     run()
-
