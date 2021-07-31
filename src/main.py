@@ -30,10 +30,10 @@ def run():
             config_reload_interval = config.get_config_reload_interval()
             config_reload_loop_count = 0
 
-        if scanning_paths is None or config_reload_loop_count is 0:
+        if scanning_paths is None or config_reload_loop_count == 0:
             scanning_paths = config.get_monitored_folders()
 
-        if scan_interval is None or config_reload_loop_count is 0:
+        if scan_interval is None or config_reload_loop_count == 0:
             scan_interval = config.get_folder_scan_interval()
 
         # do the actual scanning
